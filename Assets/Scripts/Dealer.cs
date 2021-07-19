@@ -6,6 +6,11 @@ using UnityEngine;
 public class Dealer : MonoBehaviour
 {
     [SerializeField] GameObject[] cardImg;
+    [SerializeField] GameObject cardImgBack = null;
+
+    [SerializeField] Transform[] playerCardPos;
+    [SerializeField] Transform[] opponentCardPos;
+    [SerializeField] Transform[] tableCardPos;
 
     private int[] deck = Enumerable.Range(0, 52).ToArray();
     private int[] playerCards = new int[2];
@@ -51,25 +56,41 @@ public class Dealer : MonoBehaviour
         playerCards[0] = deck[0];
         playerCards[1] = deck[1];
 
+        // show player cards
+        Instantiate(cardImgBack, opponentCardPos[0].position, Quaternion.identity);
+        Instantiate(cardImgBack, opponentCardPos[1].position, Quaternion.identity);
+
         // deal opponent cards
         opponentCards[0] = deck[2];
         opponentCards[1] = deck[3];
+
+        // show back of opponent cards
+        Instantiate(cardImg[deck[2]], playerCardPos[0].position, Quaternion.identity);
+        Instantiate(cardImg[deck[3]], playerCardPos[1].position, Quaternion.identity);
+
     }
 
     private void Flop()
     {
         tableCards[0] = deck[4];
+        Instantiate(cardImg[deck[4]], tableCardPos[0].position, Quaternion.identity);
+
         tableCards[1] = deck[5];
+        Instantiate(cardImg[deck[5]], tableCardPos[1].position, Quaternion.identity);
+
         tableCards[2] = deck[6];
+        Instantiate(cardImg[deck[6]], tableCardPos[2].position, Quaternion.identity);
     }
 
     private void Turn()
     {
         tableCards[3] = deck[7];
+        Instantiate(cardImg[deck[7]], tableCardPos[3].position, Quaternion.identity);
     }
 
     private void River()
     {
         tableCards[4] = deck[8];
+        Instantiate(cardImg[deck[8]], tableCardPos[4].position, Quaternion.identity);
     }
 }
