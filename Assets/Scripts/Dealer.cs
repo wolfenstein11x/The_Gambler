@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Dealer : MonoBehaviour
 {
+    [SerializeField] GameObject[] cardImg;
+
     private int[] deck = Enumerable.Range(0, 52).ToArray();
     private int[] playerCards = new int[2];
     private int[] opponentCards = new int[2];
