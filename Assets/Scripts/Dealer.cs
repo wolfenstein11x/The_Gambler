@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+
+public enum HandState { Ante, Begin, Bet, Flop, Turn, River, Reveal}
 public class Dealer : MonoBehaviour
 {
+    HandState state;
+
     [SerializeField] GameObject[] cardImg;
     [SerializeField] GameObject cardImgBack = null;
 
@@ -20,16 +24,14 @@ public class Dealer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        state = HandState.Begin;
         Shuffle();
-        Deal();
-        Flop();
-        Turn();
-        River();
-
-        Debug.Log("playerCards: " + playerCards[0] + "," + playerCards[1]);
-        Debug.Log("opponentCards: " + opponentCards[0] + "," + opponentCards[1]);
-        Debug.Log("tableCards: " + tableCards[0] + "," + tableCards[1] + "," + tableCards[2] + "," + tableCards[3] + "," + tableCards[4]);
         
+
+        //Debug.Log("playerCards: " + playerCards[0] + "," + playerCards[1]);
+        //Debug.Log("opponentCards: " + opponentCards[0] + "," + opponentCards[1]);
+        //Debug.Log("tableCards: " + tableCards[0] + "," + tableCards[1] + "," + tableCards[2] + "," + tableCards[3] + "," + tableCards[4]);
+        Debug.Log(state);
     }
 
     // Update is called once per frame
@@ -50,7 +52,16 @@ public class Dealer : MonoBehaviour
         }
     }
 
-    private void Deal()
+    public void Deal()
+    {
+        if (state == HandState.Begin) { DealHands(); }
+        else if (state == HandState.Flop) { DealFlop(); }
+        else if (state == HandState.Turn) { DealTurn(); }
+        else if (state == HandState.River) { DealRiver(); }
+
+    }
+
+    private void DealHands()
     {
         // deal player cards
         playerCards[0] = deck[0];
@@ -68,9 +79,12 @@ public class Dealer : MonoBehaviour
         Instantiate(cardImg[deck[2]], playerCardPos[0].position, Quaternion.identity);
         Instantiate(cardImg[deck[3]], playerCardPos[1].position, Quaternion.identity);
 
+        // change states
+        state = HandState.Flop;
+
     }
 
-    private void Flop()
+    private void DealFlop()
     {
         tableCards[0] = deck[4];
         Instantiate(cardImg[deck[4]], tableCardPos[0].position, Quaternion.identity);
@@ -80,15 +94,21 @@ public class Dealer : MonoBehaviour
 
         tableCards[2] = deck[6];
         Instantiate(cardImg[deck[6]], tableCardPos[2].position, Quaternion.identity);
+
+        // change states
+        state = HandState.Turn;
     }
 
-    private void Turn()
+    private void DealTurn()
     {
         tableCards[3] = deck[7];
         Instantiate(cardImg[deck[7]], tableCardPos[3].position, Quaternion.identity);
+
+        // change states
+        state = HandState.River;
     }
 
-    private void River()
+    private void DealRiver()
     {
         tableCards[4] = deck[8];
         Instantiate(cardImg[deck[8]], tableCardPos[4].position, Quaternion.identity);
