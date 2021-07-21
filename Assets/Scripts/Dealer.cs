@@ -22,6 +22,8 @@ public class Dealer : MonoBehaviour
     private int[] tableCards = new int[5];
 
     private GameObject opponentCard1, opponentCard2;
+    private GameObject playerCard1, playerCard2;
+    private GameObject flopCard1, flopCard2, flopCard3, turnCard, riverCard;
 
     private ButtonDisplayer buttonDisplayer;
 
@@ -30,13 +32,7 @@ public class Dealer : MonoBehaviour
     {
         buttonDisplayer = FindObjectOfType<ButtonDisplayer>();
 
-        state = HandState.Ante;
-        Shuffle();
-        buttonDisplayer.ShowAnteButtonOnly();
-
-        //Debug.Log("playerCards: " + playerCards[0] + "," + playerCards[1]);
-        //Debug.Log("opponentCards: " + opponentCards[0] + "," + opponentCards[1]);
-        //Debug.Log("tableCards: " + tableCards[0] + "," + tableCards[1] + "," + tableCards[2] + "," + tableCards[3] + "," + tableCards[4]);
+        NewHand();
 
     }
 
@@ -44,6 +40,15 @@ public class Dealer : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void NewHand()
+    {
+        DestroyCards();
+        state = HandState.Ante;
+        Shuffle();
+        buttonDisplayer.ShowAnteButtonOnly();
+
     }
 
     private void Shuffle()
@@ -66,6 +71,7 @@ public class Dealer : MonoBehaviour
         else if (state == HandState.Flop) { DealFlop(); }
         else if (state == HandState.Turn) { DealTurn(); }
         else if (state == HandState.River) { DealRiver(); }
+        else if (state == HandState.Reveal) { NewHand(); }
 
     }
 
@@ -76,8 +82,8 @@ public class Dealer : MonoBehaviour
         playerCards[1] = deck[1];
 
         // show player cards
-        Instantiate(cardImg[playerCards[0]], playerCardPos[0].position, Quaternion.identity);
-        Instantiate(cardImg[playerCards[1]], playerCardPos[1].position, Quaternion.identity);
+        playerCard1 = Instantiate(cardImg[playerCards[0]], playerCardPos[0].position, Quaternion.identity) as GameObject;
+        playerCard2 = Instantiate(cardImg[playerCards[1]], playerCardPos[1].position, Quaternion.identity) as GameObject;
 
         // deal opponent cards
         opponentCards[0] = deck[2];
@@ -98,13 +104,13 @@ public class Dealer : MonoBehaviour
     private void DealFlop()
     {
         tableCards[0] = deck[4];
-        Instantiate(cardImg[deck[4]], tableCardPos[0].position, Quaternion.identity);
+        flopCard1 = Instantiate(cardImg[deck[4]], tableCardPos[0].position, Quaternion.identity) as GameObject;
 
         tableCards[1] = deck[5];
-        Instantiate(cardImg[deck[5]], tableCardPos[1].position, Quaternion.identity);
+        flopCard2 = Instantiate(cardImg[deck[5]], tableCardPos[1].position, Quaternion.identity) as GameObject;
 
         tableCards[2] = deck[6];
-        Instantiate(cardImg[deck[6]], tableCardPos[2].position, Quaternion.identity);
+        flopCard3 = Instantiate(cardImg[deck[6]], tableCardPos[2].position, Quaternion.identity) as GameObject;
 
         // change states
         state = HandState.Turn;
@@ -116,7 +122,7 @@ public class Dealer : MonoBehaviour
     private void DealTurn()
     {
         tableCards[3] = deck[7];
-        Instantiate(cardImg[deck[7]], tableCardPos[3].position, Quaternion.identity);
+        turnCard = Instantiate(cardImg[deck[7]], tableCardPos[3].position, Quaternion.identity) as GameObject;
 
         // change states
         state = HandState.River;
@@ -128,7 +134,7 @@ public class Dealer : MonoBehaviour
     private void DealRiver()
     {
         tableCards[4] = deck[8];
-        Instantiate(cardImg[deck[8]], tableCardPos[4].position, Quaternion.identity);
+        riverCard = Instantiate(cardImg[deck[8]], tableCardPos[4].position, Quaternion.identity);
 
         // show bet buttons
         buttonDisplayer.ShowBetButtonsOnly();
@@ -146,6 +152,9 @@ public class Dealer : MonoBehaviour
         // show opponent cards
         opponentCard1 = Instantiate(cardImg[opponentCards[0]], opponentCardPos[0].position, Quaternion.identity);
         opponentCard2 = Instantiate(cardImg[opponentCards[1]], opponentCardPos[1].position, Quaternion.identity);
+
+        // show deal button to start new hand
+        buttonDisplayer.ShowDealButtonOnly();
     }
 
     public HandState State()
@@ -156,5 +165,18 @@ public class Dealer : MonoBehaviour
     public void SetState(HandState newState)
     {
         state = newState;
+    }
+
+    private void DestroyCards()
+    {
+        Destroy(playerCard1);
+        Destroy(playerCard2);
+        Destroy(opponentCard1);
+        Destroy(opponentCard2);
+        Destroy(flopCard1);
+        Destroy(flopCard2);
+        Destroy(flopCard3);
+        Destroy(turnCard);
+        Destroy(riverCard);
     }
 }
