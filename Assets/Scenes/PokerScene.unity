@@ -289,6 +289,7 @@ MonoBehaviour:
   betButton: {fileID: 624046955}
   checkButton: {fileID: 594921459}
   revealButton: {fileID: 1234821177}
+  betInputField: {fileID: 2046897813}
 --- !u!4 &340264027
 Transform:
   m_ObjectHideFlags: 0
@@ -555,6 +556,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 937067231660059986}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2046897813 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2046897813, guid: dd314785ac4861c43988b8a9f58477d9,
+    type: 3}
+  m_PrefabInstance: {fileID: 937067231660059986}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &937067231660059986
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -562,9 +569,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1234821178, guid: dd314785ac4861c43988b8a9f58477d9, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -5.77
+    - target: {fileID: 488580629, guid: dd314785ac4861c43988b8a9f58477d9, type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 488580629, guid: dd314785ac4861c43988b8a9f58477d9, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 488580629, guid: dd314785ac4861c43988b8a9f58477d9, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 488580629, guid: dd314785ac4861c43988b8a9f58477d9, type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 488580629, guid: dd314785ac4861c43988b8a9f58477d9, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 488580629, guid: dd314785ac4861c43988b8a9f58477d9, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 909130910, guid: dd314785ac4861c43988b8a9f58477d9, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 909130910, guid: dd314785ac4861c43988b8a9f58477d9, type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 909130910, guid: dd314785ac4861c43988b8a9f58477d9, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1234821179, guid: dd314785ac4861c43988b8a9f58477d9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

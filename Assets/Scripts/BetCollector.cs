@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BetCollector : MonoBehaviour
 {
     private Dealer dealer;
     private ButtonDisplayer buttonDisplayer;
+
+    private string betString = "0";
+    private float betFloat = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -46,7 +50,9 @@ public class BetCollector : MonoBehaviour
 
     public void ReceivePlayerBet()
     {
-        Debug.Log("You bet");
+        betString = buttonDisplayer.SendBetInput(); 
+
+        Debug.Log("You bet " + betString);
 
         if (GetState() == HandState.Reveal)
         {

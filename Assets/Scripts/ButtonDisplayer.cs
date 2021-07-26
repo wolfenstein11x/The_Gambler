@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ButtonDisplayer : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class ButtonDisplayer : MonoBehaviour
     public GameObject betButton = null;
     public GameObject checkButton = null;
     public GameObject revealButton = null;
+    public GameObject betInputField = null;
 
     private Dealer dealer;
 
@@ -22,6 +24,11 @@ public class ButtonDisplayer : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public string SendBetInput()
+    {
+        return betInputField.GetComponent<Text>().text;
     }
 
     private HandState GetState()
@@ -45,6 +52,7 @@ public class ButtonDisplayer : MonoBehaviour
 
         HideButton(checkButton);
         HideButton(betButton);
+        HideButton(betInputField);
         HideButton(dealButton);
         HideButton(revealButton);
     }
@@ -55,6 +63,7 @@ public class ButtonDisplayer : MonoBehaviour
         
         HideButton(checkButton);
         HideButton(betButton);
+        HideButton(betInputField);
         HideButton(anteButton);
         HideButton(revealButton);
     }
@@ -63,6 +72,7 @@ public class ButtonDisplayer : MonoBehaviour
     {
         DisplayButton(checkButton);
         DisplayButton(betButton);
+        DisplayButton(betInputField);
 
         HideButton(dealButton);
         HideButton(anteButton);
@@ -76,6 +86,7 @@ public class ButtonDisplayer : MonoBehaviour
         HideButton(dealButton);
         HideButton(checkButton);
         HideButton(betButton);
+        HideButton(betInputField);
         HideButton(anteButton);
     }
 }
