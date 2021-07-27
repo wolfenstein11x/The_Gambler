@@ -24,7 +24,7 @@ public class BetCollector : MonoBehaviour
         
     }
 
-    public void ReceiveAntes()
+    public void ProcessAntes()
     {
         Debug.Log("Ante received");
         dealer.SetState(HandState.Begin);
@@ -48,11 +48,8 @@ public class BetCollector : MonoBehaviour
         
     }
 
-    public void ReceivePlayerBet()
+    public void ProcessPlayerBet()
     {
-        betString = buttonDisplayer.SendBetInput(); 
-
-        Debug.Log("You bet " + betString);
 
         if (GetState() == HandState.Reveal)
         {

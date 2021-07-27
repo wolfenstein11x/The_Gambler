@@ -26,11 +26,6 @@ public class ButtonDisplayer : MonoBehaviour
         
     }
 
-    public string SendBetInput()
-    {
-        return betInputField.GetComponent<Text>().text;
-    }
-
     private HandState GetState()
     {
         return dealer.State();
