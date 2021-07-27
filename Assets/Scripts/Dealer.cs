@@ -5,9 +5,11 @@ using UnityEngine;
 
 
 public enum HandState { Ante, Begin, Bet, Flop, Turn, River, Reveal}
+public enum BetState { PlayerBet, OpponentBet }
 public class Dealer : MonoBehaviour
 {
     HandState state;
+    BetState betState;
 
     [SerializeField] GameObject[] cardImg;
     [SerializeField] GameObject cardImgBack = null;
