@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerPoker : MonoBehaviour
 {
     [SerializeField] PotTracker potTracker;
+    [SerializeField] BetProcessor betProcessor;
     [SerializeField] float playerMoney = 10f;
     [SerializeField] Text playerMoneyText;
     [SerializeField] GameObject betInputField = null;
@@ -41,6 +42,17 @@ public class PlayerPoker : MonoBehaviour
 
         potTracker.UpdatePot(playerBet);
         AdjustMoney(-playerBet);
+    }
+
+    public void Call()
+    {
+        
+    }
+
+    public void Fold()
+    {
+        Debug.Log("Player fold");
+        betProcessor.ProcessPlayerFold();
     }
 
     

@@ -91,13 +91,13 @@ public class OpponentPoker : MonoBehaviour
 
     private void Fold()
     {
-        Debug.Log("I fold!");
+        Debug.Log("Opponent folds");
         betProcessor.ProcessOpponentFold();
     }
 
     private void Call()
     {
-        Debug.Log("I call!");
+        Debug.Log("Opponent calls");
         PayBet(playerPoker.playerBet);
         betProcessor.ProcessOpponentCall();
     }

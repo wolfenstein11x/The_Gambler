@@ -32,5 +32,13 @@ public class PotTracker : MonoBehaviour
 
     }
 
+    public void OpponentWinsPot()
+    {
+        opponentPoker.AdjustMoney(pot);
+
+        pot = 0;
+        potText.text = pot.ToString();
+    }
+
     
 }

@@ -38,6 +38,15 @@ public class BetProcessor : MonoBehaviour
         FinishTurn();
     }
 
+    public void ProcessPlayerFold()
+    {
+        potTracker.OpponentWinsPot();
+
+        dealer.SetState(HandState.Reveal);
+
+        buttonDisplayer.ShowDealButtonOnly();
+    }
+
     public void ProcessOpponentFold()
     {
         potTracker.PlayerWinsPot();
@@ -55,6 +64,8 @@ public class BetProcessor : MonoBehaviour
     public void ProcessOpponentBet(float amount)
     {
         Debug.Log(amount + " to play...");
+
+        buttonDisplayer.ShowCallFoldButtonsOnly();
     }
 
     

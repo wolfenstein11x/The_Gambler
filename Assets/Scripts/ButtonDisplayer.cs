@@ -10,6 +10,8 @@ public class ButtonDisplayer : MonoBehaviour
     public GameObject betButton = null;
     public GameObject checkButton = null;
     public GameObject revealButton = null;
+    public GameObject callButton = null;
+    public GameObject foldButton = null;
     public GameObject betInputField = null;
 
     private Dealer dealer;
@@ -43,46 +45,40 @@ public class ButtonDisplayer : MonoBehaviour
 
     public void ShowAnteButtonOnly()
     {
-        DisplayButton(anteButton);
+        HideAllButtons();
 
-        HideButton(checkButton);
-        HideButton(betButton);
-        HideButton(betInputField);
-        HideButton(dealButton);
-        HideButton(revealButton);
+        DisplayButton(anteButton);
     }
 
     public void ShowDealButtonOnly()
     {
+        HideAllButtons();
+
         DisplayButton(dealButton);
-        
-        HideButton(checkButton);
-        HideButton(betButton);
-        HideButton(betInputField);
-        HideButton(anteButton);
-        HideButton(revealButton);
     }
 
     public void ShowBetButtonsOnly()
     {
+        HideAllButtons();
+
         DisplayButton(checkButton);
         DisplayButton(betButton);
         DisplayButton(betInputField);
-
-        HideButton(dealButton);
-        HideButton(anteButton);
-        HideButton(revealButton);
     }
 
     public void ShowRevealButtonOnly()
     {
-        DisplayButton(revealButton);
+        HideAllButtons();
 
-        HideButton(dealButton);
-        HideButton(checkButton);
-        HideButton(betButton);
-        HideButton(betInputField);
-        HideButton(anteButton);
+        DisplayButton(revealButton);
+    }
+
+    public void ShowCallFoldButtonsOnly()
+    {
+        HideAllButtons();
+
+        DisplayButton(callButton);
+        DisplayButton(foldButton);
     }
 
     public void HideAllButtons()
@@ -93,6 +89,8 @@ public class ButtonDisplayer : MonoBehaviour
         HideButton(betInputField);
         HideButton(anteButton);
         HideButton(revealButton);
+        HideButton(foldButton);
+        HideButton(callButton);
     }
 
     public void ShowCallButtonsOnly()
