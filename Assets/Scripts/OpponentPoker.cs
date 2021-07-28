@@ -1,19 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OpponentPoker : MonoBehaviour
 {
     [SerializeField] PotTracker potTracker;
     [SerializeField] BetProcessor betProcessor;
     [SerializeField] float opponentMoney = 10f;
+    [SerializeField] Text opponentMoneyText;
     [SerializeField] float thinkTimeMin = 3f;
     [SerializeField] float thinkTimeMax = 6f;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        opponentMoneyText.text = opponentMoney.ToString();
     }
 
     // Update is called once per frame
@@ -24,9 +26,15 @@ public class OpponentPoker : MonoBehaviour
 
     public void PayAnte()
     {
-        opponentMoney -= potTracker.ante;
-
+        AdjustMoney(-potTracker.ante);
         potTracker.UpdatePot(potTracker.ante);
+    }
+
+    public void AdjustMoney(float amount)
+    {
+        float newAmount = float.Parse(opponentMoneyText.text) + amount;
+        opponentMoney = newAmount;
+        opponentMoneyText.text = newAmount.ToString();
     }
 
     public void RespondToCheck()
