@@ -539,11 +539,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38a47ad197121a346a6a5e1c58703efa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerPoker: {fileID: 1919572540}
+  opponentPoker: {fileID: 1548613121}
   potText: {fileID: 2103681705}
-  playerMoneyText: {fileID: 0}
-  betInputField: {fileID: 912678341}
   ante: 0.5
-  startingMoney: 10
 --- !u!1 &1234821177 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1234821177, guid: dd314785ac4861c43988b8a9f58477d9,
@@ -722,7 +721,7 @@ GameObject:
   - component: {fileID: 1397753850}
   - component: {fileID: 1397753849}
   m_Layer: 0
-  m_Name: BetCollector
+  m_Name: BetProcessor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -740,6 +739,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b871caa3c8346a42ac77e14a464fca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerPoker: {fileID: 1919572540}
+  opponentPoker: {fileID: 1548613121}
+  dealer: {fileID: 62645175}
+  buttonDisplayer: {fileID: 340264026}
+  potTracker: {fileID: 930927382}
 --- !u!4 &1397753850
 Transform:
   m_ObjectHideFlags: 0
@@ -760,12 +764,108 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 937067231660059986}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1548613120
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1548613122}
+  - component: {fileID: 1548613121}
+  m_Layer: 0
+  m_Name: OpponentPoker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1548613121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548613120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0c3340c217976b4788199577f5ed1d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potTracker: {fileID: 930927382}
+  betProcessor: {fileID: 1397753849}
+  opponentMoney: 10
+  thinkTimeMin: 3
+  thinkTimeMax: 6
+--- !u!4 &1548613122
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548613120}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 4.09, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1759573181 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 937067232249490718, guid: dd314785ac4861c43988b8a9f58477d9,
     type: 3}
   m_PrefabInstance: {fileID: 937067231660059986}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1919572539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1919572541}
+  - component: {fileID: 1919572540}
+  m_Layer: 0
+  m_Name: PlayerPoker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1919572540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919572539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcf07238a2a25234b953add09dd64f40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potTracker: {fileID: 930927382}
+  playerMoney: 10
+  playerMoneyText: {fileID: 1256422400}
+  betInputField: {fileID: 912678341}
+  playerBet: 0
+--- !u!4 &1919572541
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919572539}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.86, y: -4.33, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1959793393 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 937067231984074659, guid: dd314785ac4861c43988b8a9f58477d9,
@@ -967,17 +1067,17 @@ PrefabInstance:
     - target: {fileID: 279701509409131756, guid: dd314785ac4861c43988b8a9f58477d9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 279701509409131756, guid: dd314785ac4861c43988b8a9f58477d9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1397753849}
+      objectReference: {fileID: 1919572540}
     - target: {fileID: 279701509409131756, guid: dd314785ac4861c43988b8a9f58477d9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ProcessAntes
+      value: PayAnte
       objectReference: {fileID: 0}
     - target: {fileID: 279701509409131756, guid: dd314785ac4861c43988b8a9f58477d9,
         type: 3}
@@ -993,15 +1093,40 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 930927382}
+      objectReference: {fileID: 1548613121}
     - target: {fileID: 279701509409131756, guid: dd314785ac4861c43988b8a9f58477d9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: CollectAntes
+      value: PayAnte
       objectReference: {fileID: 0}
     - target: {fileID: 279701509409131756, guid: dd314785ac4861c43988b8a9f58477d9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 279701509409131756, guid: dd314785ac4861c43988b8a9f58477d9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 279701509409131756, guid: dd314785ac4861c43988b8a9f58477d9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 279701509409131756, guid: dd314785ac4861c43988b8a9f58477d9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1397753849}
+    - target: {fileID: 279701509409131756, guid: dd314785ac4861c43988b8a9f58477d9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: ProcessAntes
+      objectReference: {fileID: 0}
+    - target: {fileID: 279701509409131756, guid: dd314785ac4861c43988b8a9f58477d9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 937067230994321681, guid: dd314785ac4861c43988b8a9f58477d9,
@@ -1042,17 +1167,17 @@ PrefabInstance:
     - target: {fileID: 937067231139097255, guid: dd314785ac4861c43988b8a9f58477d9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 937067231139097255, guid: dd314785ac4861c43988b8a9f58477d9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 930927382}
+      objectReference: {fileID: 1397753849}
     - target: {fileID: 937067231139097255, guid: dd314785ac4861c43988b8a9f58477d9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StoreBet
+      value: ProcessPlayerBet
       objectReference: {fileID: 0}
     - target: {fileID: 937067231139097255, guid: dd314785ac4861c43988b8a9f58477d9,
         type: 3}
@@ -1157,7 +1282,7 @@ PrefabInstance:
     - target: {fileID: 937067231176793663, guid: dd314785ac4861c43988b8a9f58477d9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ProcessCheck
+      value: ProcessPlayerCheck
       objectReference: {fileID: 0}
     - target: {fileID: 937067231232790654, guid: dd314785ac4861c43988b8a9f58477d9,
         type: 3}

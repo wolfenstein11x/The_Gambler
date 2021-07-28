@@ -4,12 +4,10 @@ using System.Linq;
 using UnityEngine;
 
 
-public enum HandState { Ante, Begin, Bet, Flop, Turn, River, Reveal}
-public enum BetState { PlayerBet, OpponentBet }
+public enum HandState { Ante, Begin, Flop, Turn, River, Reveal}
 public class Dealer : MonoBehaviour
 {
     HandState state;
-    BetState betState;
 
     [SerializeField] GameObject[] cardImg;
     [SerializeField] GameObject cardImgBack = null;
@@ -38,11 +36,7 @@ public class Dealer : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 
     private void NewHand()
     {

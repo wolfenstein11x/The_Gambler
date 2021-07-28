@@ -84,4 +84,19 @@ public class ButtonDisplayer : MonoBehaviour
         HideButton(betInputField);
         HideButton(anteButton);
     }
+
+    public void HideAllButtons()
+    {
+        HideButton(dealButton);
+        HideButton(checkButton);
+        HideButton(betButton);
+        HideButton(betInputField);
+        HideButton(anteButton);
+        HideButton(revealButton);
+    }
+
+    public void ShowCallButtonsOnly()
+    {
+        Debug.Log("call raise or fold");
+    }
 }
