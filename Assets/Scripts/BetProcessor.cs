@@ -47,6 +47,11 @@ public class BetProcessor : MonoBehaviour
         buttonDisplayer.ShowDealButtonOnly();
     }
 
+    public void ProcessOpponentCall()
+    {
+        FinishTurn();
+    }
+
     
 
     private void FinishTurn()
