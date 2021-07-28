@@ -23,7 +23,14 @@ public class BetProcessor : MonoBehaviour
     {
         buttonDisplayer.HideAllButtons();
 
-        opponentPoker.CheckToOpponent();
+        opponentPoker.RespondToCheck();
+    }
+
+    public void ProcessPlayerBet()
+    {
+        buttonDisplayer.HideAllButtons();
+
+        opponentPoker.RespondToBet();
     }
 
     public void ProcessOpponentCheck()
@@ -31,11 +38,16 @@ public class BetProcessor : MonoBehaviour
         FinishTurn();
     }
 
-    public void ProcessPlayerBet()
+    public void ProcessOpponentFold()
     {
+        potTracker.PlayerWinsPot();
 
-        return;
+        dealer.SetState(HandState.Reveal);
+
+        buttonDisplayer.ShowDealButtonOnly();
     }
+
+    
 
     private void FinishTurn()
     {

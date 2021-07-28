@@ -796,8 +796,8 @@ MonoBehaviour:
   potTracker: {fileID: 930927382}
   betProcessor: {fileID: 1397753849}
   opponentMoney: 10
-  thinkTimeMin: 3
-  thinkTimeMax: 6
+  thinkTimeMin: 1
+  thinkTimeMax: 3
 --- !u!4 &1548613122
 Transform:
   m_ObjectHideFlags: 0
@@ -1167,17 +1167,17 @@ PrefabInstance:
     - target: {fileID: 937067231139097255, guid: dd314785ac4861c43988b8a9f58477d9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 937067231139097255, guid: dd314785ac4861c43988b8a9f58477d9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1397753849}
+      objectReference: {fileID: 1919572540}
     - target: {fileID: 937067231139097255, guid: dd314785ac4861c43988b8a9f58477d9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ProcessPlayerBet
+      value: StoreBet
       objectReference: {fileID: 0}
     - target: {fileID: 937067231139097255, guid: dd314785ac4861c43988b8a9f58477d9,
         type: 3}
@@ -1202,6 +1202,11 @@ PrefabInstance:
     - target: {fileID: 937067231139097255, guid: dd314785ac4861c43988b8a9f58477d9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 937067231139097255, guid: dd314785ac4861c43988b8a9f58477d9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 937067231176793657, guid: dd314785ac4861c43988b8a9f58477d9,

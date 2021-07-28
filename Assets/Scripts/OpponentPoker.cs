@@ -29,23 +29,42 @@ public class OpponentPoker : MonoBehaviour
         potTracker.UpdatePot(potTracker.ante);
     }
 
-    public void CheckToOpponent()
+    public void RespondToCheck()
     {
-        StartCoroutine(CheckToOpponentCoroutine());
+        StartCoroutine(RespondToCheckCoroutine());
     }
 
-    private IEnumerator CheckToOpponentCoroutine()
+    private IEnumerator RespondToCheckCoroutine()
     {
         float thinkTime = Random.Range(thinkTimeMin, thinkTimeMax);
 
         yield return new WaitForSeconds(thinkTime);
 
-        OpponentCheck();
+        Check();
 
     }
 
-    private void OpponentCheck()
+    public void RespondToBet()
+    {
+        StartCoroutine(RespondToBetCoroutine());
+    }
+
+    private IEnumerator RespondToBetCoroutine()
+    {
+        float thinkTime = Random.Range(thinkTimeMin, thinkTimeMax);
+
+        yield return new WaitForSeconds(thinkTime);
+
+        Fold();
+    }
+
+    private void Check()
     {
         betProcessor.ProcessOpponentCheck();
+    }
+
+    private void Fold()
+    {
+        betProcessor.ProcessOpponentFold();
     }
 }
