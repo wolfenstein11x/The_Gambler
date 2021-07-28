@@ -52,6 +52,11 @@ public class BetProcessor : MonoBehaviour
         FinishTurn();
     }
 
+    public void ProcessOpponentBet(float amount)
+    {
+        Debug.Log(amount + " to play...");
+    }
+
     
 
     private void FinishTurn()
