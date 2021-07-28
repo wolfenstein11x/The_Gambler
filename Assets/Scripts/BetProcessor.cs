@@ -33,6 +33,11 @@ public class BetProcessor : MonoBehaviour
         opponentPoker.RespondToBet();
     }
 
+    public void ProcessPlayerCall()
+    {
+        FinishTurn();
+    }
+
     public void ProcessOpponentCheck()
     {
         FinishTurn();

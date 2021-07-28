@@ -7,12 +7,13 @@ public class PlayerPoker : MonoBehaviour
 {
     [SerializeField] PotTracker potTracker;
     [SerializeField] BetProcessor betProcessor;
+    [SerializeField] OpponentPoker opponentPoker;
     [SerializeField] float playerMoney = 10f;
     [SerializeField] Text playerMoneyText;
     [SerializeField] GameObject betInputField = null;
 
     private string betString;
-    public float playerBet;
+    public float betAmount;
 
     // Start is called before the first frame update
     void Start()
@@ -38,15 +39,19 @@ public class PlayerPoker : MonoBehaviour
     {
         betString = betInputField.GetComponent<Text>().text;
 
-        playerBet = float.Parse(betString);
+        betAmount = float.Parse(betString);
 
-        potTracker.UpdatePot(playerBet);
-        AdjustMoney(-playerBet);
+        potTracker.UpdatePot(betAmount);
+        AdjustMoney(-betAmount);
     }
 
     public void Call()
     {
-        
+        AdjustMoney(-opponentPoker.betAmount);
+
+        potTracker.UpdatePot(opponentPoker.betAmount);
+
+        betProcessor.ProcessPlayerCall();
     }
 
     public void Fold()

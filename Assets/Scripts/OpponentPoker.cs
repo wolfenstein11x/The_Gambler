@@ -17,6 +17,8 @@ public class OpponentPoker : MonoBehaviour
     [SerializeField] float thinkTimeMin = 3f;
     [SerializeField] float thinkTimeMax = 6f;
 
+    public float betAmount = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -98,14 +100,14 @@ public class OpponentPoker : MonoBehaviour
     private void Call()
     {
         Debug.Log("Opponent calls");
-        PayBet(playerPoker.playerBet);
+        PayBet(playerPoker.betAmount);
         betProcessor.ProcessOpponentCall();
     }
 
     private void Bet()
     {
         // random amount between ante and all-in
-        float betAmount = Random.Range(potTracker.ante, opponentMoney);
+        betAmount = Random.Range(potTracker.ante, opponentMoney);
         
         // round to 2 decimal places
         betAmount = Mathf.Round(betAmount * 100f) / 100f;

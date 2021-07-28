@@ -12,6 +12,7 @@ public class ButtonDisplayer : MonoBehaviour
     public GameObject revealButton = null;
     public GameObject callButton = null;
     public GameObject foldButton = null;
+    public GameObject raiseButton = null;
     public GameObject betInputField = null;
 
     private Dealer dealer;
@@ -91,6 +92,7 @@ public class ButtonDisplayer : MonoBehaviour
         HideButton(revealButton);
         HideButton(foldButton);
         HideButton(callButton);
+        HideButton(raiseButton);
     }
 
     public void ShowCallButtonsOnly()
