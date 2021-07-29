@@ -10,6 +10,9 @@ public class OpponentPoker : MonoBehaviour
     [SerializeField] PlayerPoker playerPoker;
     public float opponentMoney = 10f;
     [SerializeField] Text opponentMoneyText;
+    [SerializeField] GameObject opponentTextbox = null;
+    [SerializeField] Text opponentMessage;
+    [SerializeField] float messageTime = 2f;
 
     // character traits
     [SerializeField] float callRating = 0.5f;
@@ -17,19 +20,28 @@ public class OpponentPoker : MonoBehaviour
     [SerializeField] float raiseRating = 0.7f;
     [SerializeField] float thinkTimeMin = 3f;
     [SerializeField] float thinkTimeMax = 6f;
+    public string winMessage = "Hey Chicago, whadda ya say!";
+    public string loseMessage = "Dangit!";
 
     public float betAmount = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
+        opponentTextbox.SetActive(false);
+
         opponentMoneyText.text = opponentMoney.ToString();
     }
 
-    // Update is called once per frame
-    void Update()
+    public IEnumerator OutputMessage(string message)
     {
-        
+        opponentTextbox.SetActive(true);
+        opponentMessage.text = message;
+
+        yield return new WaitForSeconds(messageTime);
+
+        opponentMessage.text = "";
+        opponentTextbox.SetActive(false);
     }
 
     public void PayAnte()
@@ -137,18 +149,22 @@ public class OpponentPoker : MonoBehaviour
 
     private void Check()
     {
+        StartCoroutine(OutputMessage("I check!"));
+
         betProcessor.ProcessOpponentCheck();
     }
 
     private void Fold()
     {
-        Debug.Log("Opponent folds");
+        StartCoroutine(OutputMessage("I fold!"));
+
         betProcessor.ProcessOpponentFold();
     }
 
     private void Call()
     {
-        Debug.Log("Opponent calls");
+        StartCoroutine(OutputMessage("I'll call!"));
+
         PayBet(playerPoker.betAmount);
         betProcessor.ProcessOpponentCall();
     }
@@ -160,6 +176,8 @@ public class OpponentPoker : MonoBehaviour
         
         // round to 2 decimal places
         betAmount = Mathf.Round(betAmount * 100f) / 100f;
+
+        StartCoroutine(OutputMessage("I bet $" + betAmount.ToString()));
 
         PayBet(betAmount);
 
@@ -179,6 +197,8 @@ public class OpponentPoker : MonoBehaviour
 
         // then bet the raise
         PayBet(betAmount);
+
+        StartCoroutine(OutputMessage("I raise " + betAmount));
 
         // then process the raise
         betProcessor.ProcessOpponentBet(betAmount);

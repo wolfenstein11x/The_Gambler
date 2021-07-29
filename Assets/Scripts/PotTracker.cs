@@ -23,9 +23,9 @@ public class PotTracker : MonoBehaviour
 
     public void PlayerWinsPot()
     {
-        playerPoker.AdjustMoney(pot);
+        StartCoroutine(opponentPoker.OutputMessage(opponentPoker.loseMessage));
 
-        //AdjustOpoonentMoney
+        playerPoker.AdjustMoney(pot);
 
         pot = 0;
         potText.text = pot.ToString();
@@ -34,6 +34,8 @@ public class PotTracker : MonoBehaviour
 
     public void OpponentWinsPot()
     {
+        StartCoroutine(opponentPoker.OutputMessage(opponentPoker.winMessage));
+
         opponentPoker.AdjustMoney(pot);
 
         pot = 0;
