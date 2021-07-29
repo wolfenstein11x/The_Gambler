@@ -87,7 +87,6 @@ public class PlayerPoker : MonoBehaviour
 
     public void Fold()
     {
-        Debug.Log("Player fold");
         betProcessor.ProcessPlayerFold();
     }
 

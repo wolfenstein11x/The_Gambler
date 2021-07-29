@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PotTracker : MonoBehaviour
 {
+    [SerializeField] Dealer dealer;
     [SerializeField] PlayerPoker playerPoker;
     [SerializeField] OpponentPoker opponentPoker;
     [SerializeField] Text potText;
@@ -23,10 +24,16 @@ public class PotTracker : MonoBehaviour
 
     public void PlayerWinsPot()
     {
-        StartCoroutine(opponentPoker.OutputMessage(opponentPoker.loseMessage));
-
+        // only ouput lose message if it was on a reveal (not a fold)
+        if (dealer.State() == HandState.Reveal)
+        {
+            StartCoroutine(opponentPoker.OutputMessage(opponentPoker.loseMessage));
+        }
+        
+        // add pot to player money
         playerPoker.AdjustMoney(pot);
 
+        // reset pot to zero
         pot = 0;
         potText.text = pot.ToString();
 

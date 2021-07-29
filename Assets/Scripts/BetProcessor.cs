@@ -68,8 +68,6 @@ public class BetProcessor : MonoBehaviour
 
     public void ProcessOpponentBet(float amount)
     {
-        Debug.Log(amount + " to play...");
-
         buttonDisplayer.ShowCallFoldButtonsOnly();
     }
 
