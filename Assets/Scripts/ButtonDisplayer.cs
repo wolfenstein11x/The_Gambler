@@ -14,6 +14,8 @@ public class ButtonDisplayer : MonoBehaviour
     public GameObject foldButton = null;
     public GameObject raiseButton = null;
     public GameObject betInputField = null;
+    [SerializeField] Text callAmount;
+    [SerializeField] OpponentPoker opponentPoker;
 
     private Dealer dealer;
 
@@ -79,9 +81,16 @@ public class ButtonDisplayer : MonoBehaviour
         HideAllButtons();
 
         DisplayButton(callButton);
+        UpdateCallAmountText(opponentPoker.betAmount);
+        
         DisplayButton(foldButton);
         DisplayButton(raiseButton);
         DisplayButton(betInputField);
+    }
+
+    private void UpdateCallAmountText(float amount)
+    {
+        callAmount.text = "$" + amount.ToString() + " to call...";
     }
 
     public void HideAllButtons()
