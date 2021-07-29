@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class NPCController : MonoBehaviour, Interactables
 {
+    [SerializeField] string matchScene;
     [SerializeField] GameObject dialogueBox = null;
     [SerializeField] Text dialogueText;
     [SerializeField] Sprite sprite;
@@ -41,6 +42,9 @@ public class NPCController : MonoBehaviour, Interactables
         {
             currentLine = 0;
             dialogueBox.SetActive(false);
+
+            // dialogue is complete, so start match 
+            if (matchScene != "") { InitiateMatch(); }
         }
         
     }
@@ -65,5 +69,10 @@ public class NPCController : MonoBehaviour, Interactables
         if (isTyping) { return; }
 
         StartCoroutine(ShowDialogue());
+    }
+
+    private void InitiateMatch()
+    {
+        FindObjectOfType<SceneLoader>().LoadMatchScene(matchScene);
     }
 }

@@ -448,6 +448,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &747251951
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 747251953}
+  - component: {fileID: 747251952}
+  m_Layer: 0
+  m_Name: SceneLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &747251952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747251951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 692e1dd482c17244fa8bd4af500e09b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &747251953
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747251951}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &762506539
 GameObject:
   m_ObjectHideFlags: 3
@@ -676,15 +719,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 197e9660210ed164aabb7fded850820c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  matchScene: BryceMatch
   dialogueBox: {fileID: 1065254251}
   dialogueText: {fileID: 1866902704}
   sprite: {fileID: 21300000, guid: 10948c787b42d9048b2e89e4c04c4756, type: 3}
   lines:
-  - Hey, sorry can't play now...
-  - I've got to go coach basketball practice!
-  - This year we're gonna win it all!
-  - But check down by the White River, Greg is there fishing...
-  - I bet he'd be up for a game!
+  - Hey how's it goin?
+  - I just got done coaching basketball practice...
+  - Are you looking for a poker challenger? I'll play!
+  - I want to win a few bucks so I can buy new fishing poles...
+  - I'm going on a fishing trip with Mr. Carr tomorrow!
+  - What are you waiting for? Let's play poker!
   lettersPerSecond: 45
 --- !u!1 &807665455
 GameObject:
@@ -718,15 +763,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 197e9660210ed164aabb7fded850820c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  matchScene: 
   dialogueBox: {fileID: 1065254251}
   dialogueText: {fileID: 1866902704}
   sprite: {fileID: 21300000, guid: 9b487d659a9458c4186b57770fcec2fd, type: 3}
   lines:
   - What up Slam Cam!
-  - Did Brucey Goosey send you here?
+  - I can't play now, I've got some fishing to do...
   - I'm tryin to catch a big whopper, so I can eat it for supper!
-  - But I suppose if I take your money in poker, I can take Steph out to eat!
-  - You're on! Deal em up!
+  - But why don't you go ask Bryce to play?
+  - His lives just up the road...
   lettersPerSecond: 45
 --- !u!61 &807665457
 BoxCollider2D:
@@ -1102,6 +1148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 197e9660210ed164aabb7fded850820c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  matchScene: 
   dialogueBox: {fileID: 1065254251}
   dialogueText: {fileID: 1866902704}
   sprite: {fileID: 21300000, guid: 2a314f94970562d4fa44dcf4e378a927, type: 3}
@@ -5422,6 +5469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 197e9660210ed164aabb7fded850820c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  matchScene: 
   dialogueBox: {fileID: 1065254251}
   dialogueText: {fileID: 1866902704}
   sprite: {fileID: 21300000, guid: 49f46803d2712d545a6d23d6c5159fe0, type: 3}
