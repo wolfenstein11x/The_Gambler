@@ -80,6 +80,8 @@ public class ButtonDisplayer : MonoBehaviour
 
         DisplayButton(callButton);
         DisplayButton(foldButton);
+        DisplayButton(raiseButton);
+        DisplayButton(betInputField);
     }
 
     public void HideAllButtons()
