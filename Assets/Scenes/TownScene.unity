@@ -1107,7 +1107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 197e9660210ed164aabb7fded850820c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  matchScene: 
+  matchScene: CanterMatch
   dialogueBox: {fileID: 1065254251}
   dialogueText: {fileID: 1866902704}
   sprite: {fileID: 21300000, guid: 2a314f94970562d4fa44dcf4e378a927, type: 3}
@@ -1117,6 +1117,9 @@ MonoBehaviour:
   - Oh and by the way...
   - Aren't you afraid of LAMBS?
   - Wimp!
+  - I guess you won't take no for an answer...
+  - All right, I'll play cards if it makes you shut up and go away!
+  - Deal 'em up, idiot!
   lettersPerSecond: 45
 --- !u!61 &1392604696
 BoxCollider2D:
