@@ -63,6 +63,7 @@ public class Dealer : MonoBehaviour
 
     public void Deal()
     {
+
         if (state == HandState.Begin) { DealHands(); }
         else if (state == HandState.Flop) { DealFlop(); }
         else if (state == HandState.Turn) { DealTurn(); }

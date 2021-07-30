@@ -14,6 +14,8 @@ public class ButtonDisplayer : MonoBehaviour
     public GameObject foldButton = null;
     public GameObject raiseButton = null;
     public GameObject betInputField = null;
+    [SerializeField] GameObject winMenu = null;
+    [SerializeField] GameObject loseMenu = null;
     [SerializeField] Text callAmount;
     [SerializeField] OpponentPoker opponentPoker;
 
@@ -93,6 +95,20 @@ public class ButtonDisplayer : MonoBehaviour
         callAmount.text = "$" + amount.ToString() + " to call...";
     }
 
+    public void ShowWinMenuOnly()
+    {
+        HideAllButtons();
+
+        DisplayButton(winMenu);
+    }
+
+    public void ShowLoseMenuOnly()
+    {
+        HideAllButtons();
+
+        DisplayButton(loseMenu);
+    }
+
     public void HideAllButtons()
     {
         HideButton(dealButton);
@@ -104,10 +120,10 @@ public class ButtonDisplayer : MonoBehaviour
         HideButton(foldButton);
         HideButton(callButton);
         HideButton(raiseButton);
+        HideButton(winMenu);
+        HideButton(loseMenu);
     }
 
-    public void ShowCallButtonsOnly()
-    {
-        Debug.Log("call raise or fold");
-    }
+    
+    
 }

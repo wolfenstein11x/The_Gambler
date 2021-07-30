@@ -71,6 +71,16 @@ public class BetProcessor : MonoBehaviour
         buttonDisplayer.ShowCallFoldButtonsOnly();
     }
 
+    public void ProcessPlayerWinMatch()
+    {
+        buttonDisplayer.ShowWinMenuOnly();
+    }
+
+    public void ProcessPlayerLoseMatch()
+    {
+        buttonDisplayer.ShowLoseMenuOnly();
+    }
+
     
 
     private void FinishTurn()
