@@ -27,14 +27,10 @@ public class WinnerFinder : MonoBehaviour
     [SerializeField] int[] arr7;
     [SerializeField] int[] arr5;
 
-    char a1 = 'a';
-    char a2 = 'a';
-    string myString = "bbc";
-
     // Start is called before the first frame update
     void Start()
     {
-        //Debug.Log(a1.Equals(myString[0]));
+       
     }
 
     // Update is called once per frame
@@ -43,6 +39,7 @@ public class WinnerFinder : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A))
         {
             Debug.Log(CheckForPairs(playerHand));
+            Debug.Log(CheckForFlush(playerHand));
         }
     }
 
@@ -56,7 +53,8 @@ public class WinnerFinder : MonoBehaviour
 
         foreach(GameObject card in hand)
         {
-            int dups = CountDups(card.name[0], hand);
+            // count matches in letter at idx 0 (which is rank)
+            int dups = CountDups(card.name[0], 0, hand);
 
             if (dups == 3) { quads = true; }
             else if (dups == 2) { trips = true; }
@@ -79,12 +77,27 @@ public class WinnerFinder : MonoBehaviour
 
     }
 
+    private bool CheckForFlush(GameObject[] hand)
+    {
+        foreach(GameObject card in hand)
+        {
+            // count matches in letter at idx 1 (which is suit)
+            int suitDups = CountDups(card.name[1], 1, hand);
+            
+            // count 5 of the same suit, exit function, you have flush
+            if (suitDups >= 4) { return true; }
+        }
+
+        // no flush if never counted 5 of same suit
+        return false;
+    }
+
     private void HandleOverTwoPairs()
     {
         // find 2 highest pairs
     }
 
-    private int CountDups(char letter, GameObject[] hand)
+    private int CountDups(char letter, int idx, GameObject[] hand)
     {   
         // start dup count at -1, since first dup counted will just be the original
         int dups = -1;
@@ -92,34 +105,11 @@ public class WinnerFinder : MonoBehaviour
         // loop through cards and count dups
         foreach(GameObject card in hand)
         {
-            if (card.name[0].Equals(letter)) { dups += 1; }
+            if (card.name[idx].Equals(letter)) { dups += 1; }
         }
 
         return dups;
     }
 
-    private bool CheckHand(int[] playerCards, int[] hand)
-    {
-        foreach (int card in hand)
-        {
-            if (playerCards.Contains(card))
-            {
-                continue;
-            }
-
-            return false;
-        }
-
-        return true;
-    }
-
-    /*
-    private bool CheckStraightFLush(int[] playerCards)
-    {
-        for (int i=0; i < straightFlush.Length; i++)
-        {
-            CheckHand(playerCards, straightFlush[i])
-        }
-    }
-    */
+   
 }
