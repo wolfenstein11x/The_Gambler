@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd2698e7880af2e4b853da627e777098, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  winnerFinder: {fileID: 1433150618}
   cardImg:
   - {fileID: 8701311054207814965, guid: 42280416b1f7c774d90ddbb304c08cde, type: 3}
   - {fileID: 3721220673820144074, guid: 5959ef3d0aa0e304aa44ff2e8d2e0846, type: 3}
@@ -653,6 +654,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1433150617
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1433150619}
+  - component: {fileID: 1433150618}
+  m_Layer: 0
+  m_Name: WinnerFinder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1433150618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433150617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50467ab000ca03c4eb1ca6562e13ca22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1433150619
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433150617}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.7002969, y: -4.4715853, z: -351.61374}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1473758909 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1473758909, guid: dd314785ac4861c43988b8a9f58477d9,
@@ -709,7 +753,7 @@ MonoBehaviour:
   opponentMessage: {fileID: 1391653086}
   messageTime: 2
   callRating: 0.9
-  betRating: 0.9
+  betRating: 0.1
   raiseRating: 0.1
   thinkTimeMin: 1
   thinkTimeMax: 3

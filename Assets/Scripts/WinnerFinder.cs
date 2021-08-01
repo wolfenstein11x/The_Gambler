@@ -22,10 +22,7 @@ public class WinnerFinder : MonoBehaviour
                                         {16,20,24,28,32 }
     };
 
-    [SerializeField] GameObject[] playerHand;
-
-    [SerializeField] int[] arr7;
-    [SerializeField] int[] arr5;
+   
 
     // Start is called before the first frame update
     void Start()
@@ -36,11 +33,22 @@ public class WinnerFinder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            Debug.Log(CheckForPairs(playerHand));
-            Debug.Log(CheckForFlush(playerHand));
-        }
+        
+    }
+
+    public int CheckHand(GameObject[] hand)
+    {
+        int pairScore = CheckForPairs(hand);
+        bool flush = CheckForFlush(hand);
+
+        // full house/quads
+        if (pairScore > 6){ return pairScore; }
+        
+        // flush
+        else if (flush) { return 6; }
+        
+        // trips, pairs, high card
+        else { return pairScore; }
     }
 
     private int CheckForPairs(GameObject[] hand)

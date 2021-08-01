@@ -9,6 +9,8 @@ public class Dealer : MonoBehaviour
 {
     HandState state;
 
+    [SerializeField] WinnerFinder winnerFinder;
+
     [SerializeField] GameObject[] cardImg;
     [SerializeField] GameObject cardImgBack = null;
 
@@ -18,7 +20,9 @@ public class Dealer : MonoBehaviour
 
     private int[] deck = Enumerable.Range(0, 52).ToArray();
     private int[] playerCards = new int[2];
+    private GameObject[] playerHand = new GameObject[7];
     private int[] opponentCards = new int[2];
+    private GameObject[] opponentHand = new GameObject[7];
     private int[] tableCards = new int[5];
 
     private GameObject opponentCard1, opponentCard2;
@@ -36,7 +40,27 @@ public class Dealer : MonoBehaviour
 
     }
 
-    
+    private void FinalizeHands()
+    {
+        // load up player hand
+        playerHand[0] = cardImg[playerCards[0]];
+        playerHand[1] = cardImg[playerCards[1]];
+        playerHand[2] = cardImg[tableCards[0]];
+        playerHand[3] = cardImg[tableCards[1]];
+        playerHand[4] = cardImg[tableCards[2]];
+        playerHand[5] = cardImg[tableCards[3]];
+        playerHand[6] = cardImg[tableCards[4]];
+
+        // load up opponent hand
+        opponentHand[0] = cardImg[opponentCards[0]];
+        opponentHand[1] = cardImg[opponentCards[1]];
+        opponentHand[2] = cardImg[tableCards[0]];
+        opponentHand[3] = cardImg[tableCards[1]];
+        opponentHand[4] = cardImg[tableCards[2]];
+        opponentHand[5] = cardImg[tableCards[3]];
+        opponentHand[6] = cardImg[tableCards[4]];
+
+    }
 
     private void NewHand()
     {
@@ -136,9 +160,17 @@ public class Dealer : MonoBehaviour
         // show bet buttons
         buttonDisplayer.ShowBetButtonsOnly();
 
+        // load up hands to check who winner is
+        FinalizeHands();
+
+        // check who winner is
+        Debug.Log("Player has: " + winnerFinder.CheckHand(playerHand));
+        Debug.Log("Opponent has: " + winnerFinder.CheckHand(opponentHand));
+
         // switch to Reveal state
         state = HandState.Reveal;
     }
+
 
     public void RevealCards()
     {
