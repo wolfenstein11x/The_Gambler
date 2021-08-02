@@ -10,6 +10,7 @@ public class Dealer : MonoBehaviour
     HandState state;
 
     [SerializeField] WinnerFinder winnerFinder;
+    [SerializeField] PotTracker potTracker;
 
     [SerializeField] GameObject[] cardImg;
     [SerializeField] GameObject cardImgBack = null;
@@ -24,6 +25,9 @@ public class Dealer : MonoBehaviour
     private int[] opponentCards = new int[2];
     private GameObject[] opponentHand = new GameObject[7];
     private int[] tableCards = new int[5];
+
+    // 2 for opponent win, 1 for player win, 0 for draw
+    private int handWinner;
 
     private GameObject opponentCard1, opponentCard2;
     private GameObject playerCard1, playerCard2;
@@ -164,13 +168,27 @@ public class Dealer : MonoBehaviour
         FinalizeHands();
 
         // check who winner is
-        Debug.Log("Player has: " + winnerFinder.CheckHand(playerHand));
-        Debug.Log("Opponent has: " + winnerFinder.CheckHand(opponentHand));
+        CheckHandWinner();
+        //Debug.Log("Player has: " + winnerFinder.CheckHand(playerHand));
+        //Debug.Log("Opponent has: " + winnerFinder.CheckHand(opponentHand));
+        //Debug.Log("Player high card is: " + winnerFinder.DetermineHighCard(playerHand));
+        //Debug.Log("Opponent high card is: " + winnerFinder.DetermineHighCard(opponentHand));
 
         // switch to Reveal state
         state = HandState.Reveal;
     }
 
+    private void CheckHandWinner()
+    {
+        handWinner = winnerFinder.DetermineHandWinner(playerHand, opponentHand);
+    }
+
+    public void DishOutWinnings()
+    {
+        if (handWinner == 2) { potTracker.OpponentWinsPot(); }
+        else if (handWinner == 1) { potTracker.PlayerWinsPot(); }
+        else { potTracker.SplitPot(); }
+    }
 
     public void RevealCards()
     {

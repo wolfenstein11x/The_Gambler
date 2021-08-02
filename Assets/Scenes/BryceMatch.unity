@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winnerFinder: {fileID: 1433150618}
+  potTracker: {fileID: 930927382}
   cardImg:
   - {fileID: 8701311054207814965, guid: 42280416b1f7c774d90ddbb304c08cde, type: 3}
   - {fileID: 3721220673820144074, guid: 5959ef3d0aa0e304aa44ff2e8d2e0846, type: 3}
@@ -957,7 +958,11 @@ PrefabInstance:
     - target: {fileID: 1234821179, guid: dd314785ac4861c43988b8a9f58477d9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 930927382}
+      objectReference: {fileID: 62645175}
+    - target: {fileID: 1234821179, guid: dd314785ac4861c43988b8a9f58477d9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: DishOutWinnings
+      objectReference: {fileID: 0}
     - target: {fileID: 279701509409131756, guid: dd314785ac4861c43988b8a9f58477d9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

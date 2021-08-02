@@ -15,9 +15,11 @@ pair = 2
 high card = 1
 */
 
+
+
 public class WinnerFinder : MonoBehaviour
 {
-   
+
     // all possible straight combinations 
     private char[,] straightCombos = new char[,] { {'a','2','3','4','5'}, {'2','3','4','5','6'}, {'3','4','5','6','7'},
                                           {'4','5','6','7','8' },{'5','6','7','8','9'}, {'6','7','8','9','t'},
@@ -124,9 +126,6 @@ public class WinnerFinder : MonoBehaviour
         return false;
     }
 
-        
-    
-    
 
     // helper function to check for a particular straight combo
     private bool CheckStraight(char r1, char r2, char r3, char r4, char r5, GameObject[] hand)
@@ -183,5 +182,50 @@ public class WinnerFinder : MonoBehaviour
         return dups;
     }
 
-   
+    private int GetRankInt(char rankChar)
+    {
+        var ranks = new Dictionary<char, int>()
+        {
+            {'2',2},{'3',3},{'4',4},{'5',5},{'6',6},{'7',7},{'8',8},{'9',9},{'t',10},{'j',11},{'q',12},{'k',13},{'a',14}
+        };
+
+        return ranks[rankChar];
+    }
+
+    public int DetermineHighCard(GameObject[] hand)
+    {
+        int currentRank = 0;
+        int highestRank = 0;
+
+        foreach (GameObject card in hand)
+        {
+            // take first letter of card (which is rank) and convert it to integer
+            currentRank = GetRankInt(card.name[0]);
+
+            if (currentRank > highestRank) { highestRank = currentRank; }
+        }
+
+        return highestRank;
+    }
+
+    public int DetermineHandWinner(GameObject[] playerHand, GameObject[] opponentHand)
+    {
+        // return 2 for opponent win, 1 for player win, zero for draw
+
+        int playerScore = CheckHand(playerHand);
+        int opponentScore = CheckHand(opponentHand);
+
+        if (playerScore > opponentScore) { return 1; }
+        else if (playerScore < opponentScore) { return 2; }
+        
+        // case where both have trips, or both have straight, etc.
+        else
+        {
+            // TODO check high cards, high pairs etc.
+
+            return 0;
+        }
+    }
+
+    
 }

@@ -58,6 +58,19 @@ public class PotTracker : MonoBehaviour
         CheckOpponentWinsMatch();
     }
 
+    public void SplitPot()
+    {
+        // give half the pot to player
+        playerPoker.AdjustMoney(pot / 2);
+
+        // give half the pot to the opponent
+        opponentPoker.AdjustMoney(pot / 2);
+
+        // reset pot to zero
+        pot = 0;
+        potText.text = pot.ToString();
+    }
+
     private void CheckPlayerWinsMatch()
     {
         if (opponentPoker.opponentMoney == 0)
