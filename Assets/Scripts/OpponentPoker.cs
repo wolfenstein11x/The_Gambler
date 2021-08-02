@@ -22,6 +22,7 @@ public class OpponentPoker : MonoBehaviour
     [SerializeField] float thinkTimeMax = 6f;
     public string winMessage = "Hey Chicago, whadda ya say!";
     public string loseMessage = "Dangit!";
+    public string drawMessage = "Split pot!";
 
     public float betAmount = 0f;
 

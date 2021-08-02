@@ -81,13 +81,16 @@ public class WinnerFinder : MonoBehaviour
         // pairs are double counted, so divide by 2
         numPairs /= 2;
 
+        // TODO write RemoveLowestPair function 
+        // if (numPairs == 3) { RemoveLowestPair(); }
+
         // check for full house
         if (numPairs >= 1 && trips) { fullHouse = true; }
 
         if (quads) { return 8; }
         else if (fullHouse) { return 7; }
         else if (trips) { return 4; }
-        else if (numPairs == 2) { return 3; }
+        else if (numPairs >= 2) { return 3; }
         else if (numPairs == 1) { return 2; }
         else { return 1; }
 
@@ -218,13 +221,116 @@ public class WinnerFinder : MonoBehaviour
         if (playerScore > opponentScore) { return 1; }
         else if (playerScore < opponentScore) { return 2; }
         
-        // case where both have trips, or both have straight, etc.
+        // both have straight, 2 pair, etc.
         else
         {
-            // TODO check high cards, high pairs etc.
+            int tieBreakerCase = CheckHand(playerHand);
 
-            return 0;
+            // switch statement to break tie
+            switch (tieBreakerCase)
+            {
+                // both have high card
+                case 1:
+                    return BreakHighCardTie(playerHand, opponentHand);
+                
+                // both have 1 pair
+                case 2:
+                    return BreakPairTie(playerHand, opponentHand);
+                
+                // both have 2 pair
+                case 3:
+                    return BreakPairTie(playerHand, opponentHand);
+                
+                // both have trips
+                case 4:
+                    return BreakTripsTie(playerHand, opponentHand);
+                
+                // both have full house
+                case 7:
+                    return BreakTripsTie(playerHand, opponentHand);
+                
+                default:
+                    return BreakHighCardTie(playerHand, opponentHand);
+
+                // TODO: break ties for straight, flush, straight flush, and quads
+            }
+
         }
+    }
+
+    private int BreakHighCardTie(GameObject[] playerHand, GameObject[] opponentHand)
+    {
+        // return 2 for opponent win, 1 for player win, zero for draw
+
+        int playerHighCard = DetermineHighCard(playerHand);
+        int opponentHighCard = DetermineHighCard(opponentHand);
+
+        if (playerHighCard > opponentHighCard) { return 1; }
+        else if (opponentHighCard > playerHighCard) { return 2; }
+        else { return 0; }
+    }
+
+    private int BreakPairTie(GameObject[] playerHand, GameObject[] opponentHand)
+    {
+        // return 2 for opponent win, 1 for player win, zero for draw
+
+        int playerPair = GetHighestPairRank(playerHand);
+        int opponentPair = GetHighestPairRank(opponentHand);
+
+        if (playerPair > opponentPair) { return 1; }
+        else if (playerPair < opponentPair) { return 2; }
+        else { return 0; }
+
+    }
+
+    private int BreakTripsTie(GameObject[] playerHand, GameObject[] opponentHand)
+    {
+        // return 2 for opponent win, 1 for player win, zero for draw
+
+        int playerTrips = GetHighestTripsRank(playerHand);
+        int opponentTrips = GetHighestTripsRank(opponentHand);
+
+        if (playerTrips > opponentTrips) { return 1; }
+        else if (playerTrips < opponentTrips) { return 2; }
+        else { return 0; }
+    }
+
+    private int GetHighestPairRank(GameObject[] hand)
+    {
+        int highestPairRank = 0;
+        int currentPairRank = 0;
+
+        foreach (GameObject card in hand)
+        {
+            // count matches in letter at idx 0 (which is rank)
+            int dups = CountDups(card.name[0], 0, hand);
+
+            if (dups == 1) { currentPairRank = GetRankInt(card.name[0]); }
+
+            if (currentPairRank > highestPairRank) { highestPairRank = currentPairRank; }
+            
+        }
+
+        return highestPairRank;
+    }
+
+    private int GetHighestTripsRank(GameObject[] hand)
+    {
+        int highestTripsRank = 0;
+        int currentTripsRank = 0;
+
+        foreach (GameObject card in hand)
+        {
+            // count matches in letter at idx 0 (which is rank)
+            int dups = CountDups(card.name[0], 0, hand);
+
+            if (dups == 2) { currentTripsRank = GetRankInt(card.name[0]); }
+
+            if (currentTripsRank > highestTripsRank) { highestTripsRank = currentTripsRank; }
+
+        }
+
+        return highestTripsRank;
     }
 
     

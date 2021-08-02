@@ -60,6 +60,8 @@ public class PotTracker : MonoBehaviour
 
     public void SplitPot()
     {
+        StartCoroutine(opponentPoker.OutputMessage(opponentPoker.drawMessage));
+
         // give half the pot to player
         playerPoker.AdjustMoney(pot / 2);
 
