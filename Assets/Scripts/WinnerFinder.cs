@@ -279,7 +279,11 @@ public class WinnerFinder : MonoBehaviour
 
         if (playerPair > opponentPair) { return 1; }
         else if (playerPair < opponentPair) { return 2; }
-        else { return 0; }
+        else 
+        {
+            // both have same highest pair, so check high card for tie break
+            return BreakHighCardTie(playerHand, opponentHand);
+        }
 
     }
 

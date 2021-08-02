@@ -119,7 +119,11 @@ public class OpponentPoker : MonoBehaviour
 
     public void RespondToBet()
     {
-        StartCoroutine(RespondToBetCoroutine());
+        // if player is weird and bets zero, treat is as a check
+        if (playerPoker.betAmount <= 0) { StartCoroutine(RespondToCheckCoroutine()); }
+        
+        else { StartCoroutine(RespondToBetCoroutine()); }
+        
     }
 
     private IEnumerator RespondToBetCoroutine()

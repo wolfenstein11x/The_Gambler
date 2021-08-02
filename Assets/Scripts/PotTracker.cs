@@ -14,6 +14,8 @@ public class PotTracker : MonoBehaviour
     public float ante = 0.50f;
     private float pot = 0;
 
+    private float epsilon = 0.001f;
+
   
     public void UpdatePot(float amount)
     {
@@ -79,7 +81,8 @@ public class PotTracker : MonoBehaviour
 
     private void CheckPlayerWinsMatch()
     {
-        if (opponentPoker.opponentMoney == 0)
+      
+        if (opponentPoker.opponentMoney <= epsilon)
         {
             betProcessor.ProcessPlayerWinMatch();
         }
@@ -87,7 +90,8 @@ public class PotTracker : MonoBehaviour
 
     private void CheckOpponentWinsMatch()
     {
-        if (playerPoker.playerMoney == 0)
+        
+        if (playerPoker.playerMoney <= epsilon)
         {
             betProcessor.ProcessPlayerLoseMatch();
         }
