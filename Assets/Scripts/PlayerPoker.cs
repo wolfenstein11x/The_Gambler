@@ -46,6 +46,9 @@ public class PlayerPoker : MonoBehaviour
         // level off amount so not to go below zero
         if (newAmount <= 0) { newAmount = 0; }
 
+        // round to 2 decimal places
+        newAmount = Mathf.Round(newAmount * 100f) / 100f;
+
         playerMoneyText.text = newAmount.ToString();
     }
 

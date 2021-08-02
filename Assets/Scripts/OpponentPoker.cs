@@ -81,6 +81,9 @@ public class OpponentPoker : MonoBehaviour
         // level off amount so not to go below zero
         if (newAmount <= 0) { newAmount = 0; }
 
+        // round to 2 decimal places
+        newAmount = Mathf.Round(newAmount * 100f) / 100f;
+
         opponentMoneyText.text = newAmount.ToString();
     }
 

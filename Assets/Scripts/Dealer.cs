@@ -169,11 +169,7 @@ public class Dealer : MonoBehaviour
 
         // check who winner is
         CheckHandWinner();
-        //Debug.Log("Player has: " + winnerFinder.CheckHand(playerHand));
-        //Debug.Log("Opponent has: " + winnerFinder.CheckHand(opponentHand));
-        //Debug.Log("Player high card is: " + winnerFinder.DetermineHighCard(playerHand));
-        //Debug.Log("Opponent high card is: " + winnerFinder.DetermineHighCard(opponentHand));
-
+        
         // switch to Reveal state
         state = HandState.Reveal;
     }

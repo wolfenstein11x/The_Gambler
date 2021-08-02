@@ -18,6 +18,10 @@ public class PotTracker : MonoBehaviour
     public void UpdatePot(float amount)
     {
         pot += amount;
+
+        // round to 2 decimal places
+        pot = Mathf.Round(pot * 100f) / 100f;
+
         potText.text = pot.ToString();
     }
 
