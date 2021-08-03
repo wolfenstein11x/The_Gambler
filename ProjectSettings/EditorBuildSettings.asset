@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 0e4371ee790f5214e8217cb361505615
+  - enabled: 1
     path: Assets/Scenes/TownScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
@@ -35,4 +38,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GregMatch.unity
     guid: ab8ada3bda91fe1459064f12834143c2
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 15f961d8cccb16b40b4b38e132d45146
+  - enabled: 1
+    path: Assets/Scenes/ControlsMenu.unity
+    guid: 413937e596269e440a6b9cb204ba0cf2
+  - enabled: 1
+    path: Assets/Scenes/WinScene.unity
+    guid: 142469f4dae2f5641a9f9c8baed06277
+  - enabled: 1
+    path: Assets/Scenes/LoseScene.unity
+    guid: 08754da897e316b49830e363305e128f
   m_configObjects: {}

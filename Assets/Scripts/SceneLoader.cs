@@ -26,4 +26,34 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene("TownScene");
     }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void LoadWinScene()
+    {
+        SceneManager.LoadScene("WinScene");
+    }
+
+    public void LoadLoseScene()
+    {
+        SceneManager.LoadScene("LoseScene");
+    }
+
+    public void LoadControlsMenu()
+    {
+        SceneManager.LoadScene("ControlsMenu");
+    }
+
+    public void LoadCreditsScene()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }

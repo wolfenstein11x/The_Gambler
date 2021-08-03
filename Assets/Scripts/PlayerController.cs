@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
         transform.position = new Vector3(PlayerData.playerCoords.x, PlayerData.playerCoords.y, PlayerData.playerCoords.z);
 
         animator = GetComponent<Animator>();
+
+        CheckForGameOver();
     }
 
     void Update()
@@ -97,6 +99,11 @@ public class PlayerController : MonoBehaviour
     public void StorePlayerCoords()
     {
         PlayerData.playerCoords = transform.position;
+    }
+
+    private void CheckForGameOver()
+    {
+        if (PlayerData.playerTotalMoney < 10f) { FindObjectOfType<SceneLoader>().LoadLoseScene(); }
     }
 
     public void HandleUpdate()
