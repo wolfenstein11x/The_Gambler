@@ -19,8 +19,7 @@ public class DataLoader : MonoBehaviour
         playerMoneyText.text = PlayerData.playerTotalMoney.ToString();
     }
 
-    private void LoadPlayerCoordinates()
-    {
+    
 
-    }
+    
 }

@@ -73,6 +73,9 @@ public class NPCController : MonoBehaviour, Interactables
 
     private void InitiateMatch()
     {
+        // store player coords so that when we reload town scene, player is in same spot
+        FindObjectOfType<PlayerController>().StorePlayerCoords();
+
         FindObjectOfType<SceneLoader>().LoadMatchScene(matchScene);
     }
 }

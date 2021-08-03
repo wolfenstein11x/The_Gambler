@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        transform.position = new Vector3(PlayerData.playerCoords.x, PlayerData.playerCoords.y, PlayerData.playerCoords.z);
+
         animator = GetComponent<Animator>();
     }
 
@@ -92,10 +94,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void StorePlayerCoords()
+    {
+        PlayerData.playerCoords = transform.position;
+    }
+
     public void HandleUpdate()
     {
 
     }
-    
-    
 }
