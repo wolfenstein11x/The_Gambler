@@ -14,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CanterMatch.unity
     guid: c1d027aed694f8049b535b370d42d13d
+  - enabled: 1
+    path: Assets/Scenes/MrsCheeseMatch.unity
+    guid: ecd3ff78b52c14946a53de9b72d75bcd
+  - enabled: 1
+    path: Assets/Scenes/MrCarrMatch.unity
+    guid: e6d33a6fd3a337844b71513fc9e3b996
+  - enabled: 1
+    path: Assets/Scenes/McQualeMatch.unity
+    guid: fc5c541d4a984ce47b382c8fc1adda9f
   m_configObjects: {}
