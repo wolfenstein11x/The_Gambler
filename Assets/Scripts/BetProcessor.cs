@@ -11,6 +11,13 @@ public class BetProcessor : MonoBehaviour
     [SerializeField] ButtonDisplayer buttonDisplayer;
     [SerializeField] PotTracker potTracker;
     
+    
+    
+
+    private void Start()
+    {
+        
+    }
 
     public void ProcessAntes()
     {
@@ -73,11 +80,17 @@ public class BetProcessor : MonoBehaviour
 
     public void ProcessPlayerWinMatch()
     {
+        // add $10 to player's total money
+        PlayerData.playerTotalMoney += 10;
+        
         buttonDisplayer.ShowWinMenuOnly();
     }
 
     public void ProcessPlayerLoseMatch()
     {
+        // subtract $10 from player's total money
+        PlayerData.playerTotalMoney -= 10;
+
         buttonDisplayer.ShowLoseMenuOnly();
     }
 

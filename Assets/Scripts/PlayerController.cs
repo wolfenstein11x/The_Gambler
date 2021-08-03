@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float overlapRadius = 0.2f;
     [SerializeField] LayerMask solidObjectsLayer = default;
     [SerializeField] LayerMask interactablesLayer = default;
+    
 
     private Animator animator;
     private bool isMoving;

@@ -641,6 +641,8 @@ MonoBehaviour:
   dealer: {fileID: 62645175}
   buttonDisplayer: {fileID: 340264026}
   potTracker: {fileID: 930927382}
+  playerData: {fileID: 3976969459655720403, guid: 7ad158d4620466f46a968fb9730dc22a,
+    type: 3}
 --- !u!4 &1397753850
 Transform:
   m_ObjectHideFlags: 0
@@ -760,6 +762,7 @@ MonoBehaviour:
   thinkTimeMax: 3
   winMessage: Hey Chicago, whadda ya say!
   loseMessage: Dangit!
+  drawMessage: Split pot!
   betAmount: 0
 --- !u!4 &1548613122
 Transform:
