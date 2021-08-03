@@ -23,4 +23,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/McQualeMatch.unity
     guid: fc5c541d4a984ce47b382c8fc1adda9f
+  - enabled: 1
+    path: Assets/Scenes/MorryMatch.unity
+    guid: 623c4e0707b081d49b65ad9e31e9cd18
+  - enabled: 1
+    path: Assets/Scenes/PaulMatch.unity
+    guid: 6dac718252b54f6419373d235c51c339
+  - enabled: 1
+    path: Assets/Scenes/PollyMatch.unity
+    guid: dbd967eb8393cb146a8f022fb534432e
+  - enabled: 1
+    path: Assets/Scenes/GregMatch.unity
+    guid: ab8ada3bda91fe1459064f12834143c2
   m_configObjects: {}
