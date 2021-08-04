@@ -56,7 +56,6 @@ public class BetProcessor : MonoBehaviour
 
         dealer.SetState(HandState.Reveal);
 
-        buttonDisplayer.ShowDealButtonOnly();
     }
 
     public void ProcessOpponentFold()
@@ -65,7 +64,6 @@ public class BetProcessor : MonoBehaviour
 
         dealer.SetState(HandState.Reveal);
 
-        buttonDisplayer.ShowDealButtonOnly();
     }
 
     public void ProcessOpponentCall()
@@ -94,7 +92,10 @@ public class BetProcessor : MonoBehaviour
         buttonDisplayer.ShowLoseMenuOnly();
     }
 
-    
+    public void ProcessHandComplete()
+    {
+        buttonDisplayer.ShowDealButtonOnly();
+    }
 
     private void FinishTurn()
     {

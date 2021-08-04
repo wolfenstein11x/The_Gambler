@@ -86,6 +86,9 @@ public class PotTracker : MonoBehaviour
         {
             betProcessor.ProcessPlayerWinMatch();
         }
+
+        // no winner yet, so do a new hand
+        else { betProcessor.ProcessHandComplete(); }
     }
 
     private void CheckOpponentWinsMatch()
@@ -95,6 +98,9 @@ public class PotTracker : MonoBehaviour
         {
             betProcessor.ProcessPlayerLoseMatch();
         }
+
+        // no winner yet, so do a new hand
+        else { betProcessor.ProcessHandComplete(); }
     }
 
     

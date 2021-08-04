@@ -26,6 +26,8 @@ public class OpponentPoker : MonoBehaviour
 
     public float betAmount = 0f;
 
+    private float epsilon = 0.001f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -98,8 +100,8 @@ public class OpponentPoker : MonoBehaviour
 
         yield return new WaitForSeconds(thinkTime);
 
-        // automatically check if have no money
-        if (opponentMoney <= 0)
+        // automatically 'check' if have no money
+        if (opponentMoney <= epsilon)
         {
             Check();
         }
@@ -120,7 +122,7 @@ public class OpponentPoker : MonoBehaviour
     public void RespondToBet()
     {
         // if player is weird and bets zero, treat is as a check
-        if (playerPoker.betAmount <= 0) { StartCoroutine(RespondToCheckCoroutine()); }
+        if (playerPoker.betAmount <= epsilon) { StartCoroutine(RespondToCheckCoroutine()); }
         
         else { StartCoroutine(RespondToBetCoroutine()); }
         

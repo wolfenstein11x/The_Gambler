@@ -32,6 +32,12 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
+    public void ResetPlayerMoney()
+    {
+        // set money to starting amount
+        PlayerData.playerTotalMoney = 30f;
+    }
+
     public void LoadWinScene()
     {
         SceneManager.LoadScene("WinScene");

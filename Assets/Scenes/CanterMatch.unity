@@ -791,9 +791,9 @@ MonoBehaviour:
   opponentTextbox: {fileID: 2053285678}
   opponentMessage: {fileID: 1391653086}
   messageTime: 2
-  callRating: 0.9
-  betRating: 0.9
-  raiseRating: 0.1
+  callRating: 0.7
+  betRating: 0.3
+  raiseRating: 0.9
   thinkTimeMin: 1
   thinkTimeMax: 3
   winMessage: Life sucks, suck it up!

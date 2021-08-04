@@ -1108,7 +1108,6 @@ MonoBehaviour:
   - I oughta bust you's up just for keepings me waitins!
   - But 'ol Beaner is in a good moods todays...
   - Now gets on outta here before I changes my minds!
-  - Now gets on outta here before I changes my minds!
   lettersPerSecond: 45
 --- !u!61 &690384566
 BoxCollider2D:
