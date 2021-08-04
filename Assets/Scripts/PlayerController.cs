@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float overlapRadius = 0.2f;
     [SerializeField] LayerMask solidObjectsLayer = default;
     [SerializeField] LayerMask interactablesLayer = default;
+    [SerializeField] GameObject quitMenu = null;
     
 
     private Animator animator;
@@ -20,6 +21,8 @@ public class PlayerController : MonoBehaviour
         transform.position = new Vector3(PlayerData.playerCoords.x, PlayerData.playerCoords.y, PlayerData.playerCoords.z);
 
         animator = GetComponent<Animator>();
+
+        ToggleQuitMenu(false);
 
         CheckForGameOver();
     }
@@ -57,6 +60,12 @@ public class PlayerController : MonoBehaviour
         {
             Interact();
         }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            ToggleQuitMenu(true);
+        }
+
     }
 
     IEnumerator Move(Vector3 targetPos)
@@ -104,6 +113,11 @@ public class PlayerController : MonoBehaviour
     private void CheckForGameOver()
     {
         if (PlayerData.playerTotalMoney < 10f) { FindObjectOfType<SceneLoader>().LoadLoseScene(); }
+    }
+
+    public void ToggleQuitMenu(bool status)
+    {
+        quitMenu.SetActive(status);
     }
 
     public void HandleUpdate()

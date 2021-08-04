@@ -104,6 +104,7 @@ MonoBehaviour:
   interactablesLayer:
     serializedVersion: 2
     m_Bits: 512
+  quitMenu: {fileID: 0}
 --- !u!95 &8636594344772387149
 Animator:
   serializedVersion: 3
