@@ -106,6 +106,12 @@ public class OpponentPoker : MonoBehaviour
             Check();
         }
 
+        // automatically 'check' if player has no money
+        else if (playerPoker.playerMoney <= epsilon)
+        {
+            Check();
+        }
+
         else
         {
             // generate random float from 0 to 1 to determine check or bet
@@ -137,10 +143,12 @@ public class OpponentPoker : MonoBehaviour
         // generate random float from 0 to 1 to determine raise or not
         float decision = Random.Range(0f, 1f);
 
-        // don't try to raise if you don't have enough money
-        if (decision <= raiseRating && (opponentMoney >= playerPoker.betAmount + potTracker.ante))
+        // don't try to raise if player/opponent don't have enough money
+        if (decision <= raiseRating 
+            && (opponentMoney >= playerPoker.betAmount + potTracker.ante) 
+            && playerPoker.playerMoney >= epsilon)
         {
-            Raise();
+            Raise(); 
         }
 
         // not raising, so either call or fold

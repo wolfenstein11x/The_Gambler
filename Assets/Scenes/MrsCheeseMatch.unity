@@ -723,8 +723,8 @@ MonoBehaviour:
   opponentMessage: {fileID: 1391653086}
   messageTime: 2
   callRating: 0.7
-  betRating: 0.3
-  raiseRating: 0.2
+  betRating: 0.9
+  raiseRating: 0.9
   thinkTimeMin: 1
   thinkTimeMax: 3
   winMessage: Girls are better than boys!
