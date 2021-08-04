@@ -629,7 +629,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -646,7 +646,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -792,8 +792,8 @@ MonoBehaviour:
   opponentMessage: {fileID: 1391653086}
   messageTime: 2
   callRating: 0.7
-  betRating: 0.3
-  raiseRating: 0.9
+  betRating: 0.8
+  raiseRating: 0.7
   thinkTimeMin: 1
   thinkTimeMax: 3
   winMessage: Life sucks, suck it up!

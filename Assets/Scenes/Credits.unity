@@ -179,7 +179,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d63b4df35e526d9458148d8d2c498f85, type: 3}
-    m_FontSize: 37
+    m_FontSize: 33
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -190,9 +190,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Art: ArMM1998
-
-    Fonts: ''Orange Kid'' by Typodermic Fonts '
+  m_Text: "Art: ArMM1998\nFonts: 'Orange Kid' by Typodermic Fonts \nSpecial thanks
+    to Youtuber 'Game Dev Experiments' for helpful tutorial"
 --- !u!222 &30311628
 CanvasRenderer:
   m_ObjectHideFlags: 0
